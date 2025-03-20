@@ -1,20 +1,47 @@
 ﻿using System;
 using System.IO;
 
-class Program
+public class NewBaseType
 {
-    static void addArrayToFile(string path, int[] array){
-        var file = File.AppendText(path);
-        foreach (int item in array)
+     static void Main()
+    {
+        // const string path = "example.txt";
+        const string ioi = "Test.txt";
+        string content = "heh";
+        File.WriteAllText(ioi, content);
+        Console.WriteLine("Фаил записан");
+
+        File.WriteAllText(ioi, content);
+        if (File.Exists(ioi))
         {
-            file.Write($"{item} ");
+
         }
-        file.Close();
+
+
+
+        // File.WriteAllText(path, content);
+
+        // if (File.Exists(path))
+        // {
+        //     Console.WriteLine("Файл существует!");
+
+        //     string text = File.ReadAllText(path);
+        //     Console.WriteLine(text);
+
+        //     string[] lines = File.ReadAllLines(path);
+
+        //     foreach (string line in lines)
+        //     {
+        //         Console.WriteLine(line);
+        //     }
+        // }
+
+        // int[] newArray = { 1, 2, 3, 4, 5 };
+        // addArrayToFile(path, newArray);
     }
 
-    static void Main()
+    private static void NewMethod()
     {
-        const string path = "example.txt";
 
         // int[] array = { 50, 40, 30, 20 };
 
@@ -31,28 +58,23 @@ class Program
         // {
         //     System.Console.WriteLine(item);
         // }
-        
+
         // file[0] = "Новый текст";
 
-        string content = "Привет, мир!";
+        
+    }
+}
 
-        File.WriteAllText(path, content);
 
-        if (File.Exists(path)){
-            Console.WriteLine("Файл существует!");
-            
-            string text = File.ReadAllText(path);
-            Console.WriteLine(text);
-
-            string[] lines = File.ReadAllLines(path);
-
-            foreach (string line in lines)
-            {
-                Console.WriteLine(line);
-            }
+class Program1 : NewBaseType 
+{
+    static void addArrayToFile(string path, int[] array)
+    {
+        var file = File.AppendText(path);
+        foreach (int item in array)
+        {
+            file.Write($"{item} ");
         }
-
-        // int[] newArray = { 1, 2, 3, 4, 5 };
-        // addArrayToFile(path, newArray);
+        file.Close();
     }
 }
