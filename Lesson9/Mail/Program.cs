@@ -1,4 +1,7 @@
-﻿namespace MailService;
+﻿using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
+
+namespace MailService;
 
 public class Letter
 {
@@ -73,6 +76,7 @@ public class Mail
         // TODO: Задание B1. напишите здесь linq запрос
         var res = Letters.Where(letter => letter.IsNew == true).Select(letter => letter.Id).ToList();
         
+        
         // var res = from letter in Letters
         //           where letter.IsNew == true
         //           select letter.Id;
@@ -140,10 +144,13 @@ public class Program
         //     email.CreateRandomLetters(10);
         // }
         
-        // TODO: Практика C1. Найти старые письма (!IsNew) с почтовым ящиком user1@mail.com 
-        
+        // TODO: Практика C3. Найти старые письма (!IsNew) с почтовым ящиком user1@mail.com 
+        var email1 = Mails.Where(x => x.Email == "user1@mail.com").SelectMany(x => x.Letters)
+                            .Where(l => l.IsNew == false).Select(l => new{l.Title, l.Body, l.Received});
 
-        // TODO: Практика C2. Найти время самого нового письма (Received) для почтового ящика user4@mail.com
+
+        
+        // TODO: Практика C4. Найти время самого нового письма (Received) для почтового ящика user4@mail.com
         
 
     }

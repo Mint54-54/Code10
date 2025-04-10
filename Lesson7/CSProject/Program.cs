@@ -130,6 +130,7 @@ class SimpleDB
     {
         Console.WriteLine("Funcional ne realizovan...");
         //  1 B;
+        StudetnFileService.SaveToFile();
     }
 
     public void LoadDB()

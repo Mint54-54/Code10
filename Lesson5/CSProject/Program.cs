@@ -33,6 +33,10 @@ class Car
 // Использование класса
 class Program
 {
+    public Program()
+    {
+    }
+
     static void Main()
     {   
 
